@@ -48,6 +48,17 @@ pipeline{
 				}
 			}
 		}
+		stage('发布到测试'){
+			when { environment name: 'test', value: 'abcd' }
+			steps{
+				timeout(time:10,unit:"MINUTES"){
+					script{
+						println("${test}")
+						input id: "Test", message: '我们是否要继续？'，ok: '是，继续吧'，parameters: [choice(choices:'main\ndev\nbranch01',description:'请选择分支',name:'BRANCH')]
+					}
+				}
+			}
+		}
 	}
 	//构建后的操作
 	post {
