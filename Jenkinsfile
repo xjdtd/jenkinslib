@@ -1,5 +1,5 @@
 #!groovy
-@library('jenkinslib') _  //引用在github上创建的名称为jenkinslib的库 符号“_” 表示引用
+@Library('jenkinslib') _  //引用在github上创建的名称为jenkinslib的库 符号“_” 表示引用
 def tools = new org.devops.tools()   //定义一个变量tools去引用库里面的内容（此处也就是tools.groovy包）
 
 String workspace = "/opt/jenkins/workspace"
